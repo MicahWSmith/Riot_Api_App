@@ -1,1 +1,1 @@
-# PROG2500_Group
+# PROG2500 group project
