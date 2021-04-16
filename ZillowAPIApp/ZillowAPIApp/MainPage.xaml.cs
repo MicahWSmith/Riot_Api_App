@@ -27,11 +27,13 @@ namespace ZillowAPIApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        ChampionViewModel appViewModel = new ChampionViewModel();
+        public ChampionViewModel appViewModel;
 
         public MainPage()
         {
-            this.InitializeComponent(); 
+            this.InitializeComponent();
+            appViewModel = new ChampionViewModel(this);
+            appViewModel.SelectedChampion = null;
         }
 
         private void FilterButton_Click(object sender, RoutedEventArgs e)

@@ -2,5 +2,13 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
+    <Source>C:\Users\micah\Downloads\logo.png</Source>
+    <SmallTileSource>C:\Users\micah\Downloads\logo.png</SmallTileSource>
+    <MediumTileSource>C:\Users\micah\Downloads\logo.png</MediumTileSource>
+    <WideTileSource>C:\Users\micah\Downloads\logo.png</WideTileSource>
+    <LargeTileSource>C:\Users\micah\Downloads\logo.png</LargeTileSource>
+    <AppIconSource>C:\Users\micah\Downloads\logo.png</AppIconSource>
+    <SplashScreenSource>C:\Users\micah\Downloads\logo.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\micah\Downloads\logo.png</PackageLogoSource>
   </PropertyGroup>
 </Project>

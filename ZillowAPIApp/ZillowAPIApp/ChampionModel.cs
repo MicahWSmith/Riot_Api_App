@@ -11,12 +11,12 @@ namespace ZillowAPIApp
         public string Name;
         public string Title;
         public string Blurb;
-        public int Attack;
-        public int Defense;
-        public int Magic;
-        public int Difficulty;
+        public string Attack;
+        public string Defense;
+        public string Magic;
+        public string Difficulty;
 
-        public ChampionModel(string name, string title, string blurb, int attack, int defense, int magic, int difficulty)
+        public ChampionModel(string name, string title, string blurb, string attack, string defense, string magic, string difficulty)
         {
             Name = name;
             Title = title;
@@ -25,6 +25,7 @@ namespace ZillowAPIApp
             Defense = defense;
             Magic = magic;
             Defense = defense;
+            Difficulty = difficulty;
         }
     }
 }

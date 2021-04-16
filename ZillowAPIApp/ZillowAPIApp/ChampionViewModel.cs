@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 namespace ZillowAPIApp
@@ -25,7 +26,65 @@ namespace ZillowAPIApp
     {
         public ObservableCollection<ChampionModel> champList = new ObservableCollection<ChampionModel>();
         public List<ChampionModel> AllChamps = new List<ChampionModel>();
-        public ChampionModel SelectedChampion;
+
+        private MainPage page;
+        public string SelectedName;
+        public string SelectedTitle;
+        public string SelectedBlurb;
+        public string SelectedAttack;
+        public string SelectedDefense;
+        public string SelectedMagic;
+        public string SelectedDifficulty;
+
+        private ChampionModel _selectedChampion;
+        public ChampionModel SelectedChampion
+        {
+            get { return _selectedChampion; }
+
+            set
+            {
+                _selectedChampion = value;
+
+                if (value == null)
+                {
+                    SelectedName = "No Champion Selected";
+                    SelectedTitle = "";
+                    SelectedBlurb = "";
+                    SelectedAttack = "";
+                    SelectedDefense = "";
+                    SelectedMagic = "";
+                    SelectedDifficulty = "";
+
+                    page.champImg.Source = null;
+                }
+                else
+                {
+                    SelectedName = value.Name;
+                    SelectedTitle = value.Title;
+                    SelectedBlurb = value.Blurb;
+                    SelectedAttack = "Attack: " + value.Attack;
+                    SelectedDefense = "Defense: " + value.Defense;
+                    SelectedMagic = "Magic: " + value.Magic;
+                    SelectedDifficulty = "Difficulty: " + value.Difficulty;
+                    
+                    string linkName = String.Concat(SelectedName.Where(c => !Char.IsWhiteSpace(c) && !Char.IsPunctuation(c)));
+
+                    if (linkName.Length >= 5)
+                    {
+                        linkName = linkName.Substring(0, 3) + Char.ToLower(linkName[3]) + linkName.Substring(4);
+                    }
+                    page.champImg.Source = new BitmapImage(new Uri("http://ddragon.leagueoflegends.com/cdn/11.8.1/img/champion/" + linkName + ".png", UriKind.Absolute));
+                }
+
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedName"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedTitle"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedBlurb"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedAttack"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedDefense"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedMagic"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedDifficulty"));
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         private string _filter;
         public string Filter
@@ -41,8 +100,9 @@ namespace ZillowAPIApp
             }
         }
 
-        public ChampionViewModel()
+        public ChampionViewModel(MainPage mainPage)
         {
+            page = mainPage;
             getData();
         }
 
@@ -50,7 +110,7 @@ namespace ZillowAPIApp
         {
             using (WebClient wc = new WebClient())
             {
-                var json = wc.DownloadString("http://ddragon.leagueoflegends.com/cdn/9.3.1/data/en_US/champion.json");
+                var json = wc.DownloadString("http://ddragon.leagueoflegends.com/cdn/11.8.1/data/en_US/champion.json");
                 var champions = Newtonsoft.Json.Linq.JObject.Parse(json);
 
                 var props = champions["data"].Select(x => ((JProperty)x).Name).ToList();
@@ -61,10 +121,10 @@ namespace ZillowAPIApp
                     string champName = (string)champions["data"][name]["name"];
                     string champTitle = (string)champions["data"][name]["title"];
                     string champBlurb = (string)champions["data"][name]["blurb"];
-                    int champAttack = (int)champions["data"][name]["info"]["attack"];
-                    int champDefense = (int)champions["data"][name]["info"]["defense"];
-                    int champMagic = (int)champions["data"][name]["info"]["magic"];
-                    int champDifficulty = (int)champions["data"][name]["info"]["difficulty"];
+                    string champAttack = (string)champions["data"][name]["info"]["attack"];
+                    string champDefense = (string)champions["data"][name]["info"]["defense"];
+                    string champMagic = (string)champions["data"][name]["info"]["magic"];
+                    string champDifficulty = (string)champions["data"][name]["info"]["difficulty"];
 
                     // create new champ
                     ChampionModel newChamp = new ChampionModel(champName, champTitle, champBlurb, champAttack, champDefense, champMagic, champDifficulty);
