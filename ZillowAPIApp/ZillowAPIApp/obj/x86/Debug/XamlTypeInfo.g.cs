@@ -13,17 +13,17 @@ namespace ZillowAPIApp
     public partial class App : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 10.0.18362.1")]
-        private global::ZillowAPIApp.ZillowAPIApp_XamlTypeInfo.XamlMetaDataProvider __appProvider;
+        private global::ZillowAPIApp.RiotAPIApp_XamlTypeInfo.XamlMetaDataProvider __appProvider;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 10.0.18362.1")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private global::ZillowAPIApp.ZillowAPIApp_XamlTypeInfo.XamlMetaDataProvider _AppProvider
+        private global::ZillowAPIApp.RiotAPIApp_XamlTypeInfo.XamlMetaDataProvider _AppProvider
         {
             get
             {
                 if (__appProvider == null)
                 {
-                    __appProvider = new global::ZillowAPIApp.ZillowAPIApp_XamlTypeInfo.XamlMetaDataProvider();
+                    __appProvider = new global::ZillowAPIApp.RiotAPIApp_XamlTypeInfo.XamlMetaDataProvider();
                 }
                 return __appProvider;
             }
@@ -61,7 +61,7 @@ namespace ZillowAPIApp
     }
 }
 
-namespace ZillowAPIApp.ZillowAPIApp_XamlTypeInfo
+namespace ZillowAPIApp.RiotAPIApp_XamlTypeInfo
 {
     /// <summary>
     /// Main class for providing metadata for the app or library
@@ -70,15 +70,15 @@ namespace ZillowAPIApp.ZillowAPIApp_XamlTypeInfo
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public sealed class XamlMetaDataProvider : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
-        private global::ZillowAPIApp.ZillowAPIApp_XamlTypeInfo.XamlTypeInfoProvider _provider = null;
+        private global::ZillowAPIApp.RiotAPIApp_XamlTypeInfo.XamlTypeInfoProvider _provider = null;
 
-        private global::ZillowAPIApp.ZillowAPIApp_XamlTypeInfo.XamlTypeInfoProvider Provider
+        private global::ZillowAPIApp.RiotAPIApp_XamlTypeInfo.XamlTypeInfoProvider Provider
         {
             get
             {
                 if (_provider == null)
                 {
-                    _provider = new global::ZillowAPIApp.ZillowAPIApp_XamlTypeInfo.XamlTypeInfoProvider();
+                    _provider = new global::ZillowAPIApp.RiotAPIApp_XamlTypeInfo.XamlTypeInfoProvider();
                 }
                 return _provider;
             }

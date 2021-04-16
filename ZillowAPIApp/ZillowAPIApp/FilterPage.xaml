@@ -10,7 +10,7 @@
 
     <Grid>
         <StackPanel VerticalAlignment="Top" Margin="12,12,12,0">
-            <TextBlock Text="Filter Results:" FontSize="30" FontWeight="Bold"/>
+            <TextBlock Text="" FontSize="30" FontWeight="Bold"/>
         </StackPanel>
     </Grid>
 </Page>

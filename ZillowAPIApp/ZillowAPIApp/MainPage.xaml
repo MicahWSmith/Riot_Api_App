@@ -8,10 +8,39 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <CollectionViewSource x:Name="ChampionsCollection" Source="{x:Bind appViewModel.champList}" />
+        <DataTemplate x:Name="ChampionsTemplate" x:DataType="local:ChampionModel">
+            <TextBlock Text="{x:Bind Name}"/>
+        </DataTemplate>
+    </Page.Resources>
+    
     <Grid>
-        <StackPanel VerticalAlignment="Top" Margin="12,12,12,0">
-            <TextBlock Text="Welcome to the Zillow API App" FontSize="30" FontWeight="Bold"/>
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="831"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="searchTextbox"
+                 Text="{x:Bind appViewModel.Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 PlaceholderText="Search Champions"
+                 FontSize="24"
+                 Height="50"
+                 Grid.Row="0"
+                 Grid.Column="0">
+        </TextBox>
+        <ScrollViewer Grid.Row="1" Grid.Column="0">
+            <ListView ItemsSource="{Binding Source={StaticResource ChampionsCollection}}"
+                      ItemTemplate="{Binding Source={StaticResource ChampionsTemplate}}"
+                      SelectedItem="{x:Bind appViewModel.SelectedChampion, Mode=TwoWay}"
+                      BorderBrush="Gold"
+                      x:Name="NameListView"
+                      x:FieldModifier="public"/>
+        </ScrollViewer>
     </Grid>
     <Page.TopAppBar>
         <CommandBar>
@@ -20,7 +49,6 @@
                 <AppBarButton Label="About" ToolTipService.ToolTip="View App Info" Click="AboutButton_Click"></AppBarButton>
                 <AppBarButton Label="Exit" ToolTipService.ToolTip="Exit Application" Click="ExitButton_Click"></AppBarButton>
             </CommandBar.SecondaryCommands>
-
         </CommandBar>
     </Page.TopAppBar>
 </Page>

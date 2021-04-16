@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -23,9 +27,11 @@ namespace ZillowAPIApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        ChampionViewModel appViewModel = new ChampionViewModel();
+
         public MainPage()
         {
-            this.InitializeComponent();
+            this.InitializeComponent(); 
         }
 
         private void FilterButton_Click(object sender, RoutedEventArgs e)
