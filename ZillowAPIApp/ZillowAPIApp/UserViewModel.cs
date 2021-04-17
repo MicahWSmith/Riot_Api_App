@@ -26,6 +26,7 @@ namespace ZillowAPIApp
         public string Icon;
         public string LP;
         public string TierRank;
+        public string key;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -93,7 +94,20 @@ namespace ZillowAPIApp
             {
                 try
                 {
-                    var riotApi = RiotApi.NewInstance("RGAPI-0191fac7-8435-4e3b-bf64-00e9582be186");
+                    try
+                    {
+                        using(var sr = new StreamReader("Key.txt"))
+                        {
+                            key = sr.ReadToEnd();
+                        }
+                    }
+                    catch(IOException ex)
+                    {
+                        Debug.WriteLine("File could not be found");
+                    }
+
+
+                    var riotApi = RiotApi.NewInstance(key);
                     var summonerInfo = await riotApi.SummonerV4.GetBySummonerNameAsync(Region.NA, username);
                     if(summonerInfo != null)
                     {

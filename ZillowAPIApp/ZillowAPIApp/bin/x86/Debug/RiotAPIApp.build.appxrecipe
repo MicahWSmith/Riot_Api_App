@@ -246,6 +246,9 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nigel\Desktop\School programs\FinalAssignment\ZillowAPIApp\ZillowAPIApp\Key.txt">
+      <PackagePath>Key.txt</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Nigel\Desktop\School programs\FinalAssignment\ZillowAPIApp\ZillowAPIApp\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
