@@ -23,9 +23,13 @@ namespace ZillowAPIApp
     /// </summary>
     public sealed partial class FilterPage : Page
     {
+        public UserViewModel userViewModel;
+        public UserModel userModel;
         public FilterPage()
         {
-            this.InitializeComponent();
+            this.InitializeComponent(); 
+            userViewModel = new UserViewModel("Puddlehouse", this);
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -43,6 +47,12 @@ namespace ZillowAPIApp
                 Frame.GoBack();
             }
             e.Handled = true;
+        }
+
+        private void seachBtn_Click(object sender, RoutedEventArgs e)
+        {
+            userViewModel = new UserViewModel(seachBar.Text, this);
+            Console.WriteLine("test");
         }
     }
 }
