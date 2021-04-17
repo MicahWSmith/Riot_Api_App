@@ -28,7 +28,7 @@ namespace ZillowAPIApp
         public FilterPage()
         {
             this.InitializeComponent(); 
-            userViewModel = new UserViewModel("Puddlehouse", this);
+            userViewModel = new UserViewModel("", this);
 
         }
 
@@ -52,7 +52,6 @@ namespace ZillowAPIApp
         private void seachBtn_Click(object sender, RoutedEventArgs e)
         {
             userViewModel = new UserViewModel(seachBar.Text, this);
-            Console.WriteLine("test");
         }
     }
 }
