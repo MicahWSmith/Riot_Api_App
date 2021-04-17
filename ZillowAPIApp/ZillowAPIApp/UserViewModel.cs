@@ -61,8 +61,7 @@ namespace ZillowAPIApp
                     Icon = value.Icon;
                     TierRank = value.Tier + " " + value.Rank;
                     Page.userPicture.Source = new BitmapImage(new Uri("http://ddragon.leagueoflegends.com/cdn/11.8.1/img/profileicon/" + Icon + ".png", UriKind.Absolute));
-                    Page.rankIcon.Source = new BitmapImage(new Uri("https://raw.githubusercontent.com/RiotAPI/Riot-Games-API-Developer-Assets/master/tier-icons/" + Tier.ToLower() + "_" + Rank.ToLower() + ".png", UriKind.Absolute));
-
+                    Page.rankIcon.Source = new BitmapImage(new Uri("https://raw.githubusercontent.com/nigelloppie/finalAssignmentImages/main/Emblem_" + Tier + ".png", UriKind.Absolute));
                     Page.userName.Text = SummonerName;
                     Page.level.Text = Level;
                     Page.tierText.Text = TierRank;
