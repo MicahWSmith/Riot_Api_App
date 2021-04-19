@@ -5,8 +5,7 @@
     xmlns:local="using:ZillowAPIApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    RequestedTheme="Dark">
+    mc:Ignorable="d">
 
     <Page.Resources>
         <CollectionViewSource x:ConnectionId='2' x:Name="ChampionsCollection"                                          />
@@ -19,7 +18,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
-                <TextBlock x:ConnectionId='5'                      Grid.Column="1" FontSize="24" VerticalAlignment="Center"/>
+                <TextBlock x:ConnectionId='5' Foreground="White"                      Grid.Column="1" FontSize="24" VerticalAlignment="Center"/>
                 <Image x:ConnectionId='6'                        x:Name="champIcon" Grid.Column="0" Margin="40,10">
                 </Image>
             </Grid>
@@ -64,7 +63,7 @@
                      TextWrapping="Wrap" FontSize="26" x:FieldModifier="public"></TextBlock>
                 <Image x:ConnectionId='10' x:FieldModifier="public" x:Name="champImg" Grid.Row="1" Grid.ColumnSpan="2">
                 </Image>
-                <TextBlock x:ConnectionId='11' Margin="20" Grid.Row="2" Grid.ColumnSpan="2"                                                        
+                <TextBlock x:ConnectionId='11' Style="{ThemeResource BaseTextBlockStyle}" Foreground="{ThemeResource SystemControlPageTextBaseHighBrush}" Margin="20" Grid.Row="2" Grid.ColumnSpan="2"                                                        
                      TextWrapping="Wrap" FontSize="30" x:FieldModifier="public"></TextBlock>
                 <TextBlock x:ConnectionId='12' Margin="20" Grid.Row="3" Grid.Column="0"                                                         
                      TextWrapping="Wrap" FontSize="30" x:FieldModifier="public"></TextBlock>

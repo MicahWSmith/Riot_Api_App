@@ -5,8 +5,7 @@
     xmlns:local="using:ZillowAPIApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    RequestedTheme="Dark">
+    mc:Ignorable="d">
 
     <Page.Resources>
         <CollectionViewSource x:Name="ChampionsCollection" Source="{x:Bind appViewModel.champList}" />
@@ -19,7 +18,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="{x:Bind Name}" Grid.Column="1" FontSize="24" VerticalAlignment="Center"/>
+                <TextBlock Foreground="White" Text="{x:Bind Name}" Grid.Column="1" FontSize="24" VerticalAlignment="Center"/>
                 <Image Source="{x:Bind Icon}" x:Name="champIcon" Grid.Column="0" Margin="40,10">
                 </Image>
             </Grid>
