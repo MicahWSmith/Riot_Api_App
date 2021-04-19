@@ -29,7 +29,7 @@
             <RowDefinition Height="109*"/>
         </Grid.RowDefinitions>
         <Image Name="userPicture" x:FieldModifier="public" Margin="40,25,40,25"  Grid.RowSpan="2" Grid.Column="1" Grid.Row="1"/>
-        <TextBlock x:Name="userName" x:FieldModifier="public" Width="650" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center" Text="{x:Bind userViewModel.SummonerName, Mode=TwoWay}" FontSize="43" HorizontalTextAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="20,0,0,0"/>
+        <TextBlock  x:Name="userName" x:FieldModifier="public" Width="650" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center" Text="{x:Bind userViewModel.SummonerName, Mode=TwoWay}" FontSize="43" HorizontalTextAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="20,0,0,0"/>
         <TextBlock Name="level" x:FieldModifier="public" Width="300" Grid.Column="5" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center" Text="{x:Bind userViewModel.Level, Mode=TwoWay}" FontSize="36" HorizontalTextAlignment="Center" VerticalAlignment="Center"/>
         <TextBox x:Name="seachBar" Grid.Column="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" TextAlignment="Center" PlaceholderText="Seach Summoner Name" FontSize="22" Grid.ColumnSpan="2"/>
         <Button x:Name="seachBtn" Content="Search" Grid.Column="4" VerticalAlignment="Top" Height="46" HorizontalAlignment="Center" Width="98" Click="seachBtn_Click"/>

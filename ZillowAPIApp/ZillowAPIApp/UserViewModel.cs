@@ -74,12 +74,10 @@ namespace ZillowAPIApp
                     Page.lossesText.Text = Losses;
                     Page.lpText.Text = LP;
 
-
-
-
                     var image = new BitmapImage(new Uri("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + Champ + "_0.jpg", UriKind.Absolute));
                     var brush = new ImageBrush();
                     brush.ImageSource = image;
+                    brush.Opacity = 0.5;
                     Page.Background = brush;
                 }
 
@@ -92,6 +90,7 @@ namespace ZillowAPIApp
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Icon"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LP"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TierRank"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Champ"));
             }
         }
         public UserViewModel(string search, FilterPage filterPage)

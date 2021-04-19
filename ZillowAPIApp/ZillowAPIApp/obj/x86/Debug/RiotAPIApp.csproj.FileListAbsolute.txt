@@ -74,7 +74,6 @@ C:\Users\Nigel\Desktop\School programs\FinalAssignment\ZillowAPIApp\ZillowAPIApp
 C:\Users\Nigel\Desktop\School programs\FinalAssignment\ZillowAPIApp\ZillowAPIApp\bin\x86\Debug\RiotSharp.pdb
 C:\Users\Nigel\Desktop\School programs\FinalAssignment\ZillowAPIApp\ZillowAPIApp\bin\x86\Debug\System.Runtime.dll
 C:\Users\Nigel\Desktop\School programs\FinalAssignment\ZillowAPIApp\ZillowAPIApp\bin\x86\Debug\Microsoft.UI.Xaml.Markup.winmd
-C:\Users\Nigel\Desktop\School programs\FinalAssignment\ZillowAPIApp\ZillowAPIApp\obj\x86\Debug\RiotAPIApp.csprojAssemblyReference.cache
 C:\Users\Nigel\Desktop\School programs\FinalAssignment\ZillowAPIApp\ZillowAPIApp\obj\x86\Debug\App.g.i.cs
 C:\Users\Nigel\Desktop\School programs\FinalAssignment\ZillowAPIApp\ZillowAPIApp\obj\x86\Debug\App.g.cs
 C:\Users\Nigel\Desktop\School programs\FinalAssignment\ZillowAPIApp\ZillowAPIApp\obj\x86\Debug\AboutPage.g.i.cs
