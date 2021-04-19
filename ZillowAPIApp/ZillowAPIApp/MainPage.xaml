@@ -11,7 +11,18 @@
     <Page.Resources>
         <CollectionViewSource x:Name="ChampionsCollection" Source="{x:Bind appViewModel.champList}" />
         <DataTemplate x:Name="ChampionsTemplate" x:DataType="local:ChampionModel">
-            <TextBlock Text="{x:Bind Name}"/>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="{x:Bind Name}" Grid.Column="1" FontSize="24" FontWeight="Bold" VerticalAlignment="Center"/>
+                <Image Source="{x:Bind Icon}" x:Name="champIcon" Grid.Column="0" Margin="40,10">
+                </Image>
+            </Grid>
         </DataTemplate>
     </Page.Resources>
     
