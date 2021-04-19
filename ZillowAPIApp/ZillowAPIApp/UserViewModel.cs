@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using MingweiSamuel.Camille;
 using MingweiSamuel.Camille.Enums;
+using Windows.UI.Text;
+using Windows.UI.Xaml.Documents;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace ZillowAPIApp
@@ -27,6 +30,7 @@ namespace ZillowAPIApp
         public string LP;
         public string TierRank;
         public string key;
+        public string Champ;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -69,6 +73,14 @@ namespace ZillowAPIApp
                     Page.winsText.Text = Wins;
                     Page.lossesText.Text = Losses;
                     Page.lpText.Text = LP;
+
+
+
+
+                    var image = new BitmapImage(new Uri("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + Champ + "_0.jpg", UriKind.Absolute));
+                    var brush = new ImageBrush();
+                    brush.ImageSource = image;
+                    Page.Background = brush;
                 }
 
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SummonerName"));
@@ -111,7 +123,11 @@ namespace ZillowAPIApp
                     var summonerInfo = await riotApi.SummonerV4.GetBySummonerNameAsync(Region.NA, username);
                     if(summonerInfo != null)
                     {
+                        var championMastery = await riotApi.ChampionMasteryV4.GetAllChampionMasteriesAsync(Region.NA, summonerInfo.Id);
+                        var champId = (Champion) championMastery[0].ChampionId;
+                        Champ = champId.Name();
                         var rankedStats = await riotApi.LeagueV4.GetLeagueEntriesForSummonerAsync(Region.NA, summonerInfo.Id);
+                        
                         if(rankedStats[0].QueueType != "RANKED_SOLO_5x5")
                         {
                             SummonerName = summonerInfo.Name;
@@ -123,8 +139,8 @@ namespace ZillowAPIApp
                             LP = rankedStats[1].LeaguePoints.ToString();
                             Icon = summonerInfo.ProfileIconId.ToString();
                             TierRank = Tier + " " + Rank;
-                            UserModel newUser = new UserModel(SummonerName, Level, Tier, Rank, Wins, Losses, Icon, LP);
-                            CurrentUser = new UserModel(SummonerName, Level, Tier, Rank, Wins, Losses, Icon, LP);
+                            UserModel newUser = new UserModel(SummonerName, Level, Tier, Rank, Wins, Losses, Icon, LP, Champ);
+                            CurrentUser = new UserModel(SummonerName, Level, Tier, Rank, Wins, Losses, Icon, LP, Champ);
                             userList.Add(newUser);
                         }
                         else
@@ -138,8 +154,8 @@ namespace ZillowAPIApp
                             LP = rankedStats[0].LeaguePoints.ToString();
                             Icon = summonerInfo.ProfileIconId.ToString();
                             TierRank = Tier + " " + Rank;
-                            UserModel newUser = new UserModel(SummonerName, Level, Tier, Rank, Wins, Losses, Icon, LP);
-                            CurrentUser = new UserModel(SummonerName, Level, Tier, Rank, Wins, Losses, Icon, LP);
+                            UserModel newUser = new UserModel(SummonerName, Level, Tier, Rank, Wins, Losses, Icon, LP, Champ);
+                            CurrentUser = new UserModel(SummonerName, Level, Tier, Rank, Wins, Losses, Icon, LP, Champ);
                             userList.Add(newUser);
                         }
 
@@ -152,6 +168,7 @@ namespace ZillowAPIApp
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Icon"));
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LP"));
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TierRank"));
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Champ"));
                     }
                     
                 }       
