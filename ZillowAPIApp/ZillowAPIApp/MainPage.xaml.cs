@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -36,7 +37,8 @@ namespace ZillowAPIApp
             this.InitializeComponent();
             appViewModel = new ChampionViewModel(this);
             appViewModel.SelectedChampion = null;
-    }
+            this.Background = new ImageBrush { ImageSource = new BitmapImage(new Uri(this.BaseUri, "Assets/lolbg.jpg")), Stretch = Stretch.UniformToFill };
+        }
 
         private void FilterButton_Click(object sender, RoutedEventArgs e)
         {

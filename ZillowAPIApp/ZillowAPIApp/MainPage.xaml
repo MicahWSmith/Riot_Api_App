@@ -6,12 +6,23 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    RequestedTheme="Dark">
 
     <Page.Resources>
         <CollectionViewSource x:Name="ChampionsCollection" Source="{x:Bind appViewModel.champList}" />
         <DataTemplate x:Name="ChampionsTemplate" x:DataType="local:ChampionModel">
-            <TextBlock Text="{x:Bind Name}"/>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="{x:Bind Name}" Grid.Column="1" FontSize="24" VerticalAlignment="Center"/>
+                <Image Source="{x:Bind Icon}" x:Name="champIcon" Grid.Column="0" Margin="40,10">
+                </Image>
+            </Grid>
         </DataTemplate>
     </Page.Resources>
     
@@ -34,7 +45,7 @@
                  Grid.Column="0">
         </TextBox>
         <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-            <TextBlock Text="{x:Bind appViewModel.SelectedName, Mode=OneWay}" Margin="20,0" FontSize="36"></TextBlock>
+            <TextBlock Text="{x:Bind appViewModel.SelectedName, Mode=OneWay}" Margin="20,0" FontSize="40"></TextBlock>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Grid>
@@ -49,23 +60,23 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Margin="20" Grid.Row="0" Grid.Column="0" Text="{x:Bind appViewModel.SelectedTitle, Mode=OneWay}"
-                     TextWrapping="Wrap" FontSize="24" x:FieldModifier="public"></TextBlock>
+                <TextBlock Margin="20,5" Grid.Row="0" Grid.Column="0" Text="{x:Bind appViewModel.SelectedTitle, Mode=OneWay}"
+                     TextWrapping="Wrap" FontSize="26" x:FieldModifier="public"></TextBlock>
                 <Image x:FieldModifier="public" x:Name="champImg" Grid.Row="1" Grid.ColumnSpan="2">
                 </Image>
                 <TextBlock Margin="20" Grid.Row="2" Grid.ColumnSpan="2" Text="{x:Bind appViewModel.SelectedBlurb, Mode=OneWay}"
-                     TextWrapping="Wrap" FontSize="24" x:FieldModifier="public"></TextBlock>
+                     TextWrapping="Wrap" FontSize="30" x:FieldModifier="public"></TextBlock>
                 <TextBlock Margin="20" Grid.Row="3" Grid.Column="0" Text="{x:Bind appViewModel.SelectedAttack, Mode=OneWay}"
-                     TextWrapping="Wrap" FontSize="24" x:FieldModifier="public"></TextBlock>
+                     TextWrapping="Wrap" FontSize="30" x:FieldModifier="public"></TextBlock>
                 <TextBlock Margin="20" Grid.Row="4" Grid.Column="0" Text="{x:Bind appViewModel.SelectedDefense, Mode=OneWay}"
-                     TextWrapping="Wrap" FontSize="24" x:FieldModifier="public"></TextBlock>
+                     TextWrapping="Wrap" FontSize="30" x:FieldModifier="public"></TextBlock>
                 <TextBlock Margin="20" Grid.Row="3" Grid.Column="1" Text="{x:Bind appViewModel.SelectedMagic, Mode=OneWay}"
-                     TextWrapping="Wrap" FontSize="24" x:FieldModifier="public"></TextBlock>
+                     TextWrapping="Wrap" FontSize="30" x:FieldModifier="public"></TextBlock>
                 <TextBlock Margin="20" Grid.Row="4" Grid.Column="1" Text="{x:Bind appViewModel.SelectedDifficulty, Mode=OneWay}"
-                     TextWrapping="Wrap" FontSize="24" x:FieldModifier="public"></TextBlock>
+                     TextWrapping="Wrap" FontSize="30" x:FieldModifier="public"></TextBlock>
             </Grid>
         </StackPanel>
-        <ScrollViewer Grid.Row="1" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <ScrollViewer Grid.Row="1" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#152238">
             <ListView ItemsSource="{Binding Source={StaticResource ChampionsCollection}}"
                       ItemTemplate="{Binding Source={StaticResource ChampionsTemplate}}"
                       SelectedItem="{x:Bind appViewModel.SelectedChampion, Mode=TwoWay}"

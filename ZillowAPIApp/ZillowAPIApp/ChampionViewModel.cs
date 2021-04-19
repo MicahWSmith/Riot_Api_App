@@ -74,7 +74,6 @@ namespace ZillowAPIApp
                         linkName = linkName.Substring(0, 3) + Char.ToLower(linkName[3]) + linkName.Substring(4);
                     }
                     page.champImg.Source = new BitmapImage(new Uri("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + linkName + "_0.jpg", UriKind.Absolute));
-                    //page.champImg.Source = new BitmapImage(new Uri("http://ddragon.leagueoflegends.com/cdn/11.8.1/img/champion/" + linkName + ".png", UriKind.Absolute));
                 }
 
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedName"));
