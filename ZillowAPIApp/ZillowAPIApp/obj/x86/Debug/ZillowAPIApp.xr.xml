@@ -42,7 +42,6 @@
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="Foreground" />
-      <RootProperty Name="Style" />
     </RootType>
     <RootType FullName="ZillowAPIApp.AboutPage" />
     <RootType FullName="Windows.UI.Xaml.Media.ImageBrush" />

@@ -56,6 +56,7 @@ namespace ZillowAPIApp
                 }
                 else
                 {
+                    //Setting the values from the current user
                     SummonerName = value.SummonerName;
                     Level = "Level: " + value.Level;
                     Tier = value.Tier;
@@ -74,10 +75,12 @@ namespace ZillowAPIApp
                     Page.lossesText.Text = Losses;
                     Page.lpText.Text = LP;
 
+                    //Setting the users most played champion's splash art to thier profile background
                     var image = new BitmapImage(new Uri("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + Champ + "_0.jpg", UriKind.Absolute));
                     var brush = new ImageBrush();
                     brush.ImageSource = image;
                     brush.Opacity = 0.5;
+                    brush.Stretch = Stretch.UniformToFill;
                     Page.Background = brush;
                 }
 
@@ -101,12 +104,14 @@ namespace ZillowAPIApp
 
         public async void getStats(string username)
         { 
+            //Only all the api if a name is entered
             if(username != "")
             {
                 try
                 {
                     try
                     {
+                        //getting the api from a external file
                         using(var sr = new StreamReader("Key.txt"))
                         {
                             key = sr.ReadToEnd();
@@ -117,18 +122,23 @@ namespace ZillowAPIApp
                         Debug.WriteLine("File could not be found");
                     }
 
-
+                    //getting the requested summoner information 
                     var riotApi = RiotApi.NewInstance(key);
                     var summonerInfo = await riotApi.SummonerV4.GetBySummonerNameAsync(Region.NA, username);
                     if(summonerInfo != null)
                     {
+                        //getting the most played champion
                         var championMastery = await riotApi.ChampionMasteryV4.GetAllChampionMasteriesAsync(Region.NA, summonerInfo.Id);
                         var champId = (Champion) championMastery[0].ChampionId;
                         Champ = champId.Name();
+
+                        //getting the summoners ranked stats from the current season
                         var rankedStats = await riotApi.LeagueV4.GetLeagueEntriesForSummonerAsync(Region.NA, summonerInfo.Id);
                         
+                        //We only want ranked solo not flex queue
                         if(rankedStats[0].QueueType != "RANKED_SOLO_5x5")
                         {
+                            // set properties 
                             SummonerName = summonerInfo.Name;
                             Level = summonerInfo.SummonerLevel.ToString();
                             Tier = rankedStats[1].Tier;
@@ -138,12 +148,15 @@ namespace ZillowAPIApp
                             LP = rankedStats[1].LeaguePoints.ToString();
                             Icon = summonerInfo.ProfileIconId.ToString();
                             TierRank = Tier + " " + Rank;
+
+                            //create the current user
                             UserModel newUser = new UserModel(SummonerName, Level, Tier, Rank, Wins, Losses, Icon, LP, Champ);
                             CurrentUser = new UserModel(SummonerName, Level, Tier, Rank, Wins, Losses, Icon, LP, Champ);
                             userList.Add(newUser);
                         }
                         else
                         {
+                            // set properties 
                             SummonerName = summonerInfo.Name;
                             Level = summonerInfo.SummonerLevel.ToString();
                             Tier = rankedStats[0].Tier;
@@ -153,6 +166,8 @@ namespace ZillowAPIApp
                             LP = rankedStats[0].LeaguePoints.ToString();
                             Icon = summonerInfo.ProfileIconId.ToString();
                             TierRank = Tier + " " + Rank;
+
+                            //create the current user
                             UserModel newUser = new UserModel(SummonerName, Level, Tier, Rank, Wins, Losses, Icon, LP, Champ);
                             CurrentUser = new UserModel(SummonerName, Level, Tier, Rank, Wins, Losses, Icon, LP, Champ);
                             userList.Add(newUser);
