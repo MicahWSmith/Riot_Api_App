@@ -8,7 +8,7 @@
 </ul>
 <br>
 <h2>Main Page</h3>
-<p>Upon entering the application you are presented with a list of champions, which are dynamically fetched from a JSON endpoint.</p>
+<p>Upon entering the application you are presented with a list of champions, which are dynamically fetched from a JSON endpoint. Selecting a list item reveals related stats and info unique to the champion.</p>
 <img alt="Main Page Screenshot" src="images/mainpage.PNG?raw=true" height="auto" width="100%" align="center">
 <br>
 <h2>To Use Summoner Search</h3>
@@ -22,12 +22,12 @@
 <div>
   <h1>Project Resources</h1>
   <ul>
-    <li><a href="ddragon.leagueoflegends.com/cdn/11.8.1/data/en_US/champion.json">Main Page champions JSON endpoint</a></li>
+    <li><a href="https://ddragon.leagueoflegends.com/cdn/11.8.1/data/en_US/champion.json">Main Page champions JSON endpoint</a></li>
   <li>C# http client ref to fetch JSON - Call a Web API From a .NET Client (C#) - ASP.NET 4.x | Microsoft Docs</li>
   <li>App icons by 0087adam from - Crossed Swords Clipart by OO87adam on DeviantArt</li>
   <li>Camille - NuGet Gallery | MingweiSamuel.Camille 2.7.3-nightly-2021-04-15-519ad84617</li>
   <li>RiotSharp - NuGet Gallery | RiotSharp 4.0.0</li>
-  <li><a href="riotgames.com">Riot Dev Portal API - Riot Developer Portal</a></li>
-  <li><a href="mathiaszamecki.com">Main xaml page background by Mathias Zamecki</a></li>
+  <li><a href="https://riotgames.com">Riot Dev Portal API - Riot Developer Portal</a></li>
+  <li><a href="https://mathiaszamecki.com">Main xaml page background by Mathias Zamecki</a></li>
   </ul>
 </div>
