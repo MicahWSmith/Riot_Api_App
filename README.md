@@ -27,7 +27,7 @@
   <li>App icons by 0087adam from - Crossed Swords Clipart by OO87adam on DeviantArt</li>
   <li>Camille - NuGet Gallery | MingweiSamuel.Camille 2.7.3-nightly-2021-04-15-519ad84617</li>
   <li>RiotSharp - NuGet Gallery | RiotSharp 4.0.0</li>
-  <li><a href="https://riotgames.com">Riot Dev Portal API - Riot Developer Portal</a></li>
+  <li>Riot Dev Portal API - Riot Developer Portal</li>
   <li><a href="https://mathiaszamecki.com">Main xaml page background by Mathias Zamecki</a></li>
   </ul>
 </div>
