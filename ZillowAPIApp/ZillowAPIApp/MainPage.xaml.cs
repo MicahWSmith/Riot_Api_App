@@ -1,20 +1,7 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿using System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
@@ -37,7 +24,11 @@ namespace ZillowAPIApp
             this.InitializeComponent();
             appViewModel = new ChampionViewModel(this);
             appViewModel.SelectedChampion = null;
-            this.Background = new ImageBrush { ImageSource = new BitmapImage(new Uri(this.BaseUri, "Assets/lolbg.jpg")), Stretch = Stretch.UniformToFill };
+            var bgImage = new BitmapImage(new Uri(this.BaseUri, "Assets/lolbg.jpg"));
+            var brush = new ImageBrush();
+            brush.ImageSource = bgImage;
+            brush.Opacity = 0.5;
+            this.Background = brush;
         }
 
         private void FilterButton_Click(object sender, RoutedEventArgs e)

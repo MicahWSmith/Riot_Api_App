@@ -5,7 +5,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Background" />
       <RootProperty Name="Content" />
-      <RootProperty Name="RequestedTheme" />
       <RootProperty Name="Resources" />
       <RootProperty Name="TopAppBar" />
     </RootType>
@@ -42,6 +41,8 @@
       <RootProperty Name="Name" />
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="Height" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Style" />
     </RootType>
     <RootType FullName="ZillowAPIApp.AboutPage" />
     <RootType FullName="Windows.UI.Xaml.Media.ImageBrush" />
